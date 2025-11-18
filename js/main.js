@@ -9,7 +9,26 @@
 
     html.className = html.className.replace(/\bno-js\b/g, '') + ' js ';
 
+    /*CV
+    *---------------------------------------------------*/
 
+    const modal = document.getElementById("cvModal");
+    const openBtn = document.getElementById("openCV");
+    const closeBtn = document.querySelector(".cv-close");
+
+    openBtn.addEventListener("click", function() {
+        modal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function(e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 
    /* Animations
     * -------------------------------------------------- */
