@@ -3417,7 +3417,7 @@ img.u-pull-left {
 
 .about-info__text {
     padding     : var(--vspace-3_5) 10vw var(--vspace-2) 0;
-    margin-left : -4rem;
+    margin-left : 11.5rem;
 }
 
 .about-info__text .text-pretitle {
@@ -3427,6 +3427,7 @@ img.u-pull-left {
 .about-info__text .btn {
     margin-top    : var(--vspace-1);
     margin-bottom : 0;
+    width: 40%;        /* half column width */
 }
 
 /* --------------------------------------------------------------------
@@ -3847,7 +3848,8 @@ img.u-pull-left {
  * ## modal popup
  * ------------------------------------------------------------------- */
 .modal-popup {
-    max-width        : 680px;
+    max-width        : 600px;
+    max-height: 80vh;
     background-color : white;
     font-size        : calc(var(--text-size) * 0.9447);
     line-height      : var(--vspace-0_875);
@@ -3912,14 +3914,16 @@ img.u-pull-left {
 }
 
 .modal-popup__details {
-    background-color : rgba(0, 0, 0, 0.3);
-    font-size        : var(--text-xs);
-    line-height      : var(--vspace-1_25);
-    color            : white;
-    padding          : 0 1.2rem;
-    position         : absolute;
-    top              : var(--vspace-1);
-    left             : var(--vspace-1);
+    position: relative; /* remove absolute/sticky */
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: var(--text-xs);
+    line-height: var(--vspace-1_25);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    white-space: nowrap; /* keeps details on one line */
+    top : calc(-2.1 * var(--vspace-1)); 
+    left : calc(4.6 * var(--vspace-1));
 }
 
 .modal-popup__details:focus,
@@ -4029,6 +4033,71 @@ img.u-pull-left {
  *
  * ------------------------------------------------------------------- */
 
+ /* Contact Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; /* slightly smaller space between fields */
+    max-width: 100%;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem; /* smaller gap between label and input */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem; /* reduce padding without changing font size */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: border 0.2s ease;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-1);
+    outline: none;
+}
+
+.contact-form textarea {
+    min-height: 120px; /* same as before */
+    line-height: 1.4;
+}
+
+.contact-form button {
+    padding: 0.6rem 0.8rem; /* slightly smaller button */
+    margin-top: 0.4rem; /* reduce top margin */
+    cursor: pointer;
+}
+
+.contact-form .form-feedback {
+    font-size: 0.9rem; /* keep original font size */
+    color: green;
+    margin-top: 0.4rem;
+}
+
+/* Adjust spacing for contact blocks */
+.contact-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* reduce spacing between columns */
+}
+
+.contact-bottom .contact-block {
+    flex: 1 1 45%; /* flexible columns, stack nicely on smaller screens */
+}
+
+/* Links & Social */
+.contact-links,
+.contact-social {
+    line-height: 1.3; /* slightly tighter line-height */
+}
+
+
 .contact-top {
     padding-top : var(--vspace-5);
     border-top  : 1px solid var(--color-border);
@@ -4098,6 +4167,22 @@ img.u-pull-left {
     }
 }
 
+/* Responsive tweaks */
+@media screen and (max-width: 800px) {
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        padding: 0.55rem 0.7rem;
+    }
+
+    .contact-bottom {
+        gap: 1rem;
+    }
+
+    .contact-bottom .contact-block {
+        flex: 1 1 100%; /* stack columns on small screens */
+    }
+}
 
 
 /* ===================================================================
