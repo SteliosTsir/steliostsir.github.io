@@ -9,6 +9,29 @@
 
     html.className = html.className.replace(/\bno-js\b/g, '') + ' js ';
 
+    /*Form
+    *---------------------------------------------------*/
+    const form = document.querySelector('.contact-form');
+    const feedback = form.querySelector('.form-feedback');
+
+    form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        feedback.style.display = 'block';
+        form.reset();
+    } else {
+        alert('Oops! There was a problem submitting your form.');
+    }
+    });
+
+
     /*CV
     *---------------------------------------------------*/
 
