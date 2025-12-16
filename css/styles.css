@@ -3923,7 +3923,7 @@ img.u-pull-left {
     border-radius: 4px;
     white-space: nowrap; /* keeps details on one line */
     top : calc(-2.1 * var(--vspace-1)); 
-    left : calc(4.6 * var(--vspace-1));
+    left : calc(13.6 * var(--vspace-1));
 }
 
 .modal-popup__details:focus,
